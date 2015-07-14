@@ -23,14 +23,21 @@ deploy_backend() {
     mkdir -p $ARCHIVE_PATH
     zip -R myapp.$2.zip myapp/*
     mv -v myapp.$2.zip $ARCHIVE_PATH/
+    rm -rf myapp
 
     echo "Unzip new version"
     unzip $PROJECT_PATH/versions/$1 -d myapp
+    cd myapp
+    python setup.py install
+
     restart_backend
 }
 
 restart_backend() {
     echo "Restarting server"
+    cd $PROJECT_PATH
+    ./bin/stop
+    ./bin/start
 }
 
 usage() {
