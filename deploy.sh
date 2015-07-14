@@ -14,7 +14,7 @@ deploy_backend() {
     echo "Deploy backend" $1
     cd $PROJECT_PATH
     file=$PROJECT_PATH/versions/$1
-    if [ -n $file ]; then
+    if [ ! -e $file ]; then
         echo "No such file" $file
         exit 1
     fi
