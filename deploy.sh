@@ -28,7 +28,7 @@ deploy_backend() {
     echo "Unzip new version"
     unzip $PROJECT_PATH/versions/$1 -d myapp
     cd myapp
-    python setup.py install
+    ~/bin/python setup.py install
 
     restart_backend
 }
