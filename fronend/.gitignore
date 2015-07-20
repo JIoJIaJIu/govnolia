@@ -1,0 +1,6 @@
+images/*
+/bem-core/**
+.bem/cache
+node_modules/**
+desktop.bundles/index/**
+!desktop.bundles/index/index.bemjson.js
